@@ -18,7 +18,7 @@ jobs:
       
       - name: Retrieve pull request name
         run: |
-          echo ::set-env name=pull_request::$(curl -s -u lucasrejanio:secrets.SuperSecret https://api.github.com/repos/lucasrejanio/actions-validation-pull-request/pulls | grep title | cut -d '"' -f 4)
+          echo ::set-env name=pull_request::$(curl -s -u lucasrejanio:${{ secrets.SuperSecret }} https://api.github.com/repos/lucasrejanio/actions-validation-pull-request/pulls | grep title | cut -d '"' -f 4)
         
       - uses: actions/github-script@v3
         with:
