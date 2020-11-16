@@ -10,17 +10,15 @@ jobs:
   apply-label:
     runs-on: ubuntu-latest
     steps:
+      - name: Secret 
+        with: # Configura o segredo como uma entrada
+          super_secret: ${{ secrets.SuperSecret }}
+        env: # Ou como uma variável de ambiente
+          super_secret: ${{ secrets.SuperSecret }}
+      
       - name: Retrieve pull request name
         run: |
-          echo ::set-env name=pull_request::$(curl -s -u lucasrejanio:75da7482dd4c412a3a4ecff4b2fc8b002ed6394d https://api.github.com/repos/lucasrejanio/actions-validation-pull-request/pulls | grep title | cut -d '"' -f 4)
-          
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.token }}
-        with:
-          tag_name: ${{ env.TAG_NAME }}
+          echo ::set-env name=pull_request::$(curl -s -u lucasrejanio:secrets.SuperSecret https://api.github.com/repos/lucasrejanio/actions-validation-pull-request/pulls | grep title | cut -d '"' -f 4)
         
       - uses: actions/github-script@v3
         with:
