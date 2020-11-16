@@ -12,8 +12,10 @@ jobs:
     steps:
       - name: Retrieve pull request name
         run: |
-          echo ::set-env name=pull_request::$(curl -s -u lucasrejanio:TOKEN https://api.github.com/repos/lucasrejanio/actions-validation-pull-request/pulls | grep title | cut -d '"' -f 4)
-        
+          echo ::set-env name=pull_request::$(curl -s -u lucasrejanio:${{ secrets.ACTIONS_SECURE_SECRET }} https://api.github.com/repos/lucasrejanio/actions-validation-pull-request/pulls | grep title | cut -d '"' -f 4)
+        env: 
+          super_secret: ${{ secrets.ACTIONS_SECURE_SECRET }}
+            
       - uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
