@@ -4,17 +4,12 @@ name: Actions validation pull-request
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, edited, synchronize]
 
 jobs:
   apply-label:
     runs-on: ubuntu-latest
     steps:
-        # extract branch name on pull request
-      - name: Extract branch name
-        if: github.event_name == 'pull_request'
-        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})"
-  
       - uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
