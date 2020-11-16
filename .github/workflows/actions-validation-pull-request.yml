@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Actions validation pull-request
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  apply-label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['Release']
+            })
