@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Actions validation pull-request
+name: Apply label in pull requests 
 
 on:
   pull_request:
