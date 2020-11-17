@@ -4,8 +4,6 @@ name: Actions validation pull-request
 
 on:
   pull_request:
-    branches:
-      - 'next-release-**'
     types: [opened]
 
 jobs:
@@ -13,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
+        if: contains(github.head_ref, "next-release-")
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
