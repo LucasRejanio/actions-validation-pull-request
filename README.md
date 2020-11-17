@@ -1,2 +1,2 @@
-# actions-validation-pull-request
+# Apply label
 Pipeline actions validation pull request
