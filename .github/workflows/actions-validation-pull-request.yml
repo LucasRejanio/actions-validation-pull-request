@@ -9,12 +9,15 @@ on:
 jobs:
   apply-label:
     runs-on: ubuntu-latest
-    steps:  
+    steps:
+      - name: Get head ref
+        run: echo "Base branch of PR ${{github.head_ref}}"
+      - name: Create Label
+        if: github.head_ref == "next-release-*"
       - uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            if: {{ github.ref == "next-release-*" }}
             github.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
