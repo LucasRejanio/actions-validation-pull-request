@@ -10,9 +10,9 @@ jobs:
   apply-label:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/github-script@v3
       - name: Validation Name Branch
         if: ${{ github.ref == "next-release-*" }}
-      - uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
