@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
-        if: ${{ github.head_ref == 'next-release-/**' }}
+        if: ${{ github.head_ref == 'refs/heads/next-release-**' }}
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
