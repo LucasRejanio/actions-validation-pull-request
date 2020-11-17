@@ -4,7 +4,7 @@ name: Actions validation pull-request
 
 on:
   pull_request_target:
-    types: [opened, edited, synchronize]
+    types: [opened]
 
 jobs:
   apply-label:
@@ -13,7 +13,7 @@ jobs:
       - name: Get head ref
         run: echo "Base branch of PR ${{github.head_ref}}"
       - name: Create Label
-        if: github.head_ref == "next-release-*"
+        if: github.head_ref == 'next-release-*'
       - uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
