@@ -5,7 +5,7 @@ name: Actions validation pull-request
 on:
   pull_request:
     branches:
-      - next-release-/*
+      - next-release-/**
     types: [opened]
 
 jobs:
