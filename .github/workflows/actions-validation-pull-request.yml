@@ -3,7 +3,7 @@
 name: Actions validation pull-request
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened]
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
-        if: github.head_ref == 'next-release-**'
+        if: ${{ github.head_ref == 'next-release-**' }}
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
