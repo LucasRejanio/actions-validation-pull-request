@@ -10,10 +10,8 @@ jobs:
   apply-label:
     runs-on: ubuntu-latest
     steps:
-      - name: Get head ref
-        run: echo "Base branch of PR ${{github.head_ref}}"
-      - name: Create Label
-        if: github.head_ref == 'next-release-*'
+      - name: Validation Name Branch
+        if: ${{ github.ref == "next-release-*" }}
       - uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
