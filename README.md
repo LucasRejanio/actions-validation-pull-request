@@ -4,7 +4,7 @@
 Esse Action adiciona uma label chamada **Release** para todas as pull requests que usam uma branch com o prefixo 'next-release-' no nome. 
 
 ```yml
-name: Apply label in pull requests 
+name: Apply release label in pull requests 
 
 on:
   pull_request:
@@ -17,13 +17,13 @@ jobs:
       - uses: actions/github-script@v3
         if: contains(github.head_ref, 'next-release-')
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['Release']
+              labels: ['release']
             })
 ```
 
@@ -49,7 +49,7 @@ script: |
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['Release']
+              labels: ['release']
             })
 ```
 
