@@ -1,4 +1,4 @@
-name: Apply label in pull requests 
+name: Apply release label in pull requests 
 
 on:
   pull_request:
@@ -11,11 +11,11 @@ jobs:
       - uses: actions/github-script@v3
         if: contains(github.head_ref, 'next-release-')
         with:
-          github-token: ${{github.token}}
+          github-token: ${{ github.token }}
           script: |
             github.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['Release']
+              labels: ['release']
             })
