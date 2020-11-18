@@ -1,7 +1,7 @@
 ![Test library workflow status](https://github.com/tcort/markdown-link-check/workflows/Test%20library/badge.svg)
 
 # Apply label
-Esse Action adiciona uma label para todas as pull requests que usam uma branch com o prefixo 'next-release-' no nome. 
+Esse Action adiciona uma label chamada **Release** para todas as pull requests que usam uma branch com o prefixo 'next-release-' no nome. 
 
 ```yml
 name: Apply label in pull requests 
