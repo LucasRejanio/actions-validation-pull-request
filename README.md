@@ -30,7 +30,7 @@ jobs:
 ## Explicação
 A condicional está baseada no nome da branch de origem, portanto, estamo utlizando o parâmetro **github.head_ref**. Se precisarmos verificar o nome da branch de destino poderiamos usar **github.ref**.
 
-### Condicional IF
+#### Condicional IF
 
 Verificar o nome fixo de uma branch: 
 ```yml
@@ -41,7 +41,7 @@ Verificar o nome dinâmico que obtem um prefixo de uma branch:
 ```yml
 if: contains(github.head_ref, 'next-release-')
 ```
-### Aplicação da label
+#### Aplicação da label
 
 ```yml
 script: |
@@ -53,7 +53,7 @@ script: |
             })
 ```
 
-## Extra
+#### Extra
 Pegar nome dos pull request por meio do comando curl: 
 
 ```console
