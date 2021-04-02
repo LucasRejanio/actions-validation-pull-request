@@ -71,5 +71,5 @@ curl -s -u lucasrejanio:<TOKEN> https://api.github.com/repos/lucasrejanio/apply-
 #### Secret
 
 ```shell
-echo ::set-env name=pull_request::$(curl -s -u lucasrejanio:${{ secrets.ACTIONS_SECURE_SECRET }} https://api.github.com/repos/lucasrejanio/apply-label/pulls | grep title | cut -d '"' -f 4)
+curl -s -u lucasrejanio:${{ secrets.ACTIONS_SECURE_SECRET }} https://api.github.com/repos/lucasrejanio/apply-label/pulls | grep title | cut -d '"' -f 4
 ```
