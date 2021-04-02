@@ -1,4 +1,4 @@
-![Test library workflow status](https://github.com/tcort/markdown-link-check/workflows/Test%20library/badge.svg)
+[![build](https://img.shields.io/wercker/build/wercker/go-wercker-api.svg)](https://github.com/LucasRejanio/apply-label-pr-actions/actions)
 
 # Apply label
 Esse Action adiciona uma label chamada **Release** para todas as pull requests que usam uma branch com o prefixo 'next-release-' no nome. 
