@@ -58,18 +58,18 @@ script: |
 #### Extra
 Pegar nome dos pull request por meio do comando curl: 
 
-```console
-curl -s -u user:tokengerado https://api.github.com/repos/NOME_DO_DONO_DO_REPOSITORIO/NOME_DO_REPOSITORIO/pulls
+```shell
+curl -s -u user:<TOKEN> https://api.github.com/repos/<NOME_DO_DONO_DO_REPOSITORIO>/<NOME_DO_REPOSITORIO>/pulls
 ```
 
 #### Token
 
-```console
-curl -s -u lucasrejanio:token https://api.github.com/repos/lucasrejanio/apply-label/pulls | grep title | cut -d '"' -f 4
+```shell
+curl -s -u lucasrejanio:<TOKEN> https://api.github.com/repos/lucasrejanio/apply-label/pulls | grep title | cut -d '"' -f 4
 ```
 
 #### Secret
 
-```console
+```shell
 echo ::set-env name=pull_request::$(curl -s -u lucasrejanio:${{ secrets.ACTIONS_SECURE_SECRET }} https://api.github.com/repos/lucasrejanio/apply-label/pulls | grep title | cut -d '"' -f 4)
 ```
